@@ -1,0 +1,639 @@
+/* Global Vars & Resets */
+:root {
+  /* Brand Colors */
+  --primary-color: #14b8a6;
+  /* Modern Teal */
+  --primary-dark: #0d9488;
+  /* Darker Teal */
+
+  /* Dark Theme (Default) - Black & White */
+  --bg-body: #000000;
+  /* Pure Black */
+  --bg-surface: #1a1a1a;
+  /* Very Dark Gray */
+  --text-primary: #ffffff;
+  /* Pure White */
+  --text-secondary: #b3b3b3;
+  /* Light Gray */
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Theme Variables - White & Black */
+body.light-mode {
+  --primary-color: #115e59;
+  /* Darker Teal for Contrast */
+  --bg-body: #ffffff;
+  /* Pure White */
+  --bg-surface: #f5f5f5;
+  /* Very Light Gray */
+  --text-primary: #000000;
+  /* Pure Black */
+  --text-secondary: #666666;
+  /* Medium Gray */
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: var(--text-primary) !important;
+}
+
+/* Navbar */
+.navbar {
+  background: var(--bg-surface) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-soft);
+}
+
+.navbar-brand {
+  color: var(--primary-color) !important;
+}
+
+.nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Reusing Surface Color for Cards */
+.card,
+.bg-white,
+.portfolio-card,
+.scroll-card,
+.interest-card,
+.form-control,
+#contact .bg-dark,
+#contact .bg-white {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Text Colors - Ensuring Visibility */
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+.text-dark {
+  color: var(--text-primary) !important;
+}
+
+.text-white {
+  color: var(--text-primary) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+/* Ensure all text is visible */
+p,
+span,
+div,
+li,
+a,
+article,
+address,
+time,
+figure,
+figcaption {
+  color: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form Controls */
+.form-control {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-surface) !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.25rem rgba(20, 184, 166, 0.25) !important;
+  background-color: var(--bg-surface) !important;
+}
+
+/* Buttons */
+.btn-dark {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #ffffff !important;
+}
+
+.btn-dark:hover {
+  background-color: var(--primary-dark) !important;
+}
+
+.btn-outline-dark {
+  color: var(--text-primary) !important;
+  border-color: var(--text-primary) !important;
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #ffffff !important;
+}
+
+/* Badges */
+.badge {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Education Icons / Badges */
+.bg-light {
+  background-color: var(--bg-surface) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Hero Section Styles */
+.hero-wrapper {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.hero-img {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  box-shadow: var(--shadow-soft);
+  border: 5px solid var(--bg-surface);
+}
+
+.text-gradient {
+  /* Simple Gradient for Name */
+  background: linear-gradient(to right, var(--primary-color), #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Fix Contact Icon Colors */
+.social-icons-contact a {
+  color: var(--primary-color) !important;
+}
+
+/* Scroll To Top */
+#scrollTopBtn {
+  background: var(--bg-surface);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+}
+
+#scrollTopBtn:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+/* Global Header Background (Nav Wrapper) */
+header.fixed-top {
+  background: var(--bg-surface) !important;
+}
+
+/* Sections */
+section,
+main {
+  background: transparent;
+}
+
+/* Skills Progress Bars */
+.progress {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: var(--primary-color) !important;
+  border-radius: 10px;
+}
+
+/* Skill Labels */
+.fw-semibold {
+  color: var(--text-primary) !important;
+}
+
+/* Portfolio Hover Effects */
+.portfolio-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 140px;
+}
+
+@media (max-width: 1400px) {
+  .portfolio-card {
+    height: 120px;
+  }
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.portfolio-overlay {
+  background: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+/* Portfolio Hover Icons */
+.portfolio-icons {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-icons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: var(--primary-color);
+  color: #ffffff;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.portfolio-icon:hover {
+  background: var(--primary-dark);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Portfolio Overlay Text */
+.portfolio-overlay h5 {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.portfolio-overlay p {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Portfolio Overlay - Always Dark for Text Visibility in Both Themes */
+.portfolio-card:hover .portfolio-overlay {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+.portfolio-card .portfolio-overlay h5,
+.portfolio-card:hover .portfolio-overlay h5 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.portfolio-card .portfolio-overlay p,
+.portfolio-card:hover .portfolio-overlay p {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Ultra-specific override for light mode */
+body.light-mode .portfolio-card .portfolio-overlay h5,
+body.light-mode .portfolio-card:hover .portfolio-overlay h5 {
+  color: #ffffff !important;
+}
+
+body.light-mode .portfolio-card .portfolio-overlay p,
+body.light-mode .portfolio-card:hover .portfolio-overlay p {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Blog Section */
+#blog {
+  background-color: var(--bg-body) !important;
+}
+
+/* Blog Card Styling */
+.scroll-card .card-title {
+  color: var(--text-primary) !important;
+}
+
+.scroll-card .card-text {
+  color: var(--text-secondary) !important;
+}
+
+/* Blog Read Article Link */
+.btn-link {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.btn-link:hover {
+  color: var(--primary-dark) !important;
+  transform: translateX(5px);
+}
+
+.btn-link i {
+  transition: transform 0.3s ease;
+}
+
+.btn-link:hover i {
+  transform: translateX(5px);
+}
+
+/* Blog Card Images */
+.scroll-card .card-img-top {
+  max-height: 180px;
+  object-fit: cover;
+}
+
+/* Blog Horizontal Scroll */
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-card {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+}
+
+.scroll-card:hover {
+  transform: translateY(-5px);
+}
+
+.scroll-card h5,
+.scroll-card p,
+.scroll-card small {
+  color: var(--text-primary) !important;
+}
+
+/* Interest Cards */
+.interest-card i {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-surface);
+  padding: 15px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.interest-card:hover i {
+  background-color: var(--primary-color);
+  color: #ffffff !important;
+  transform: scale(1.1);
+}
+
+.interest-card h6 {
+  color: var(--text-primary) !important;
+}
+
+/* All Font Awesome Icons */
+.fa,
+.fas,
+.fab,
+.far,
+.fal,
+i {
+  color: inherit;
+}
+
+/* Social Icons */
+.social-hero a,
+.social-icons-contact a {
+  color: var(--text-secondary) !important;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.social-hero a:hover,
+.social-icons-contact a:hover {
+  color: var(--primary-color) !important;
+  opacity: 1;
+}
+
+/* Lead text and descriptions */
+.lead {
+  color: var(--text-secondary) !important;
+}
+
+/* Smooth Scroll Padding for Fixed Header */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Remove old glassmorphism overrides - now handled by main card rules */
+
+
+/* Scroll To Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  display: flex;
+  /* Always display as requested */
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+#scrollTopBtn:hover {
+  transform: translateY(-5px);
+  background: white;
+  color: #2c3e50;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+/* Reveal Animation Removed */
+
+
+/* Responsive Image Tweaks */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specific fix requested for "all images are little bigger in height" */
+.profile-photo-wrapper {
+  width: 350px;
+  height: 350px;
+  transition: transform 0.3s ease;
+}
+
+.profile-photo-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.profile-photo-wrapper img {
+  object-position: center;
+}
+
+@media (max-width: 991px) {
+  .profile-photo-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* Navbar Toggler Theming */
+.navbar-toggler {
+  border-color: var(--border-color) !important;
+}
+
+/* Default (Dark Mode) - Icon should be white */
+.navbar-toggler-icon {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Light Mode - Icon should be black */
+body.light-mode .navbar-toggler-icon {
+  filter: none;
+}
+
+/* Footer Theming */
+footer {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-top: 1px solid var(--border-color) !important;
+  text-align: center;
+}
+
+/* Footer Customizations */
+.footer-link {
+  color: var(--text-secondary) !important;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-color) !important;
+}
+
+.footer-social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.footer-social-icon:hover {
+  background-color: var(--primary-color);
+  color: #ffffff !important;
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(20, 184, 166, 0.4);
+}
+
+/* Form Validation Styles */
+.needs-validation .invalid-feedback {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 5px;
+  color: #ef4444 !important;
+  /* Premium red */
+}
+
+.was-validated .form-control:invalid {
+  border-color: #ef4444 !important;
+  background-image: none !important;
+  /* Remove bootstrap default icon for cleaner look */
+}
+
+.was-validated .form-control:invalid:focus {
+  box-shadow: 0 0 0 0.25rem rgba(239, 68, 68, 0.25) !important;
+}
+
+.was-validated .form-control:valid {
+  border-color: var(--primary-color) !important;
+  background-image: none !important;
+}
+
+.was-validated .form-control:valid:focus {
+  box-shadow: 0 0 0 0.25rem rgba(20, 184, 166, 0.25) !important;
+}
+
+/* Success State for Button */
+.btn-success {
+  background-color: #22c55e !important;
+  /* Success Green */
+  border-color: #22c55e !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #16a34a !important;
+  transform: translateY(-2px);
+}
